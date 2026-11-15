@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://32l28wc47mxm"]
+
+[ext_resource type="Texture2D" uid="uid://brxxsrrpfyj3b" path="res://TILEMAP - Copy.png" id="1_0e48y"]
+[ext_resource type="Script" uid="uid://dfn05a3c7u10y" path="res://texture_rect.gd" id="2_epypp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c3vjc"]
+size = Vector2(41, 41)
+
+[node name="Node2D" type="Node2D" unique_id=294048919]
+position = Vector2(-10, -10)
+scale = Vector2(0.25, 0.25)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1437201888]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(2, 2)
+texture = ExtResource("1_0e48y")
+script = ExtResource("2_epypp")
+
+[node name="Area2D" type="Area2D" parent="TextureRect" unique_id=1833940444]
+position = Vector2(-10, -10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TextureRect/Area2D" unique_id=390861350]
+position = Vector2(30, 30)
+shape = SubResource("RectangleShape2D_c3vjc")
+
+[connection signal="body_entered" from="TextureRect/Area2D" to="TextureRect" method="_on_area_2d_body_entered"]
